@@ -1,87 +1,175 @@
-
+# Actualización del HTML con más colores y estilo visual mejorado
+colorful_html_content = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV de Susana González Romero</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+    }
+    .container {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #ff69b4;
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: #ff69b4;
+      color: white;
+    }
+    .accordion-button.collapsed {
+      background-color: #ffe6f0;
+      color: #333;
+    }
+    .accordion-body {
+      background-color: #fff0f5;
+      border-radius: 0 0 1rem 1rem;
+    }
+    .section-title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #cc0066;
+      margin-top: 1.5rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <img src="foto-susana.jpg" alt="Foto de Susana González Romero" class="foto">
+  <div class="container mt-5 mb-5">
+    <div class="text-center mb-4">
+      <img src="foto-susana.jpg" alt="Foto de Susana" class="profile-pic mb-3">
       <h1>Susana González Romero</h1>
-      <p class="subtitulo">Estudiante de Ingeniería en Robótica Industrial</p>
-    </header>
+      <p class="text-muted">Estudiante de Ingeniería en Robótica Industrial</p>
+    </div>
 
-    <section class="seccion">
-      <h2>Acerca de mí</h2>
-      <p>
-        Estudiante de Ingeniería en Robótica Industrial en el Instituto Politécnico Nacional con sólida experiencia en manufactura y manejo de materiales químicos. Competente en el uso de resinas, cauchos, monómeros y catalizadores, aplicando normas de seguridad y optimizando procesos en entornos de laboratorio y manufactura. Habilidades desarrolladas en planeación, seguimiento de proyectos y trabajo en equipo.
-      </p>
-    </section>
+    <div class="accordion" id="cvAccordion">
 
-    <section class="seccion">
-      <h2>Educación</h2>
-      <ul>
-        <li><strong>Instituto Politécnico Nacional</strong> – Ingeniería en Robótica Industrial (2021 - Actualidad), CDMX, México</li>
-        <li><strong>CONALEP Puebla I</strong> – Profesional Técnico Bachiller en Electromecánica Industrial (2017 - 2020), Puebla, México</li>
-      </ul>
-    </section>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="aboutMeHeader">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#aboutMe">
+            🌟 Acerca de mí
+          </button>
+        </h2>
+        <div id="aboutMe" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+            Estudiante de Ingeniería en Robótica Industrial en el IPN con experiencia en manufactura y manejo de materiales químicos. Habilidades desarrolladas en planeación, seguimiento de proyectos y trabajo en equipo.
+          </div>
+        </div>
+      </div>
 
-    <section class="seccion">
-      <h2>Experiencia laboral</h2>
-      <ul>
-        <li><strong>4x4 in Schools Challenge</strong> – Ingeniera de Manufactura (2017 - 2019)<br>
-          • Diseño y manufactura de prototipos con materiales químicos.<br>
-          • Aplicación de normas de seguridad y representación internacional en Reino Unido.<br>
-          • Optimización de procesos con estándares internacionales.
-        </li>
-        <li><strong>F1 in Schools México</strong> – Juez de Ingeniería y Gestión de Proyecto (2023 - Actualidad)<br>
-          • Evaluación de proyectos tecnológicos y mentoría a equipos.
-        </li>
-        <li><strong>Consejo Técnico Consultivo Escolar IPN</strong> – Miembro (2024 - Actualidad)<br>
-          • Implementación de políticas inclusivas, mantenimiento industrial y gestión de insumos de laboratorio.
-        </li>
-      </ul>
-    </section>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#education">
+            🎓 Educación
+          </button>
+        </h2>
+        <div id="education" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <ul>
+              <li><strong>IPN</strong> – Ingeniería en Robótica Industrial (2021 - Actualidad), CDMX</li>
+              <li><strong>CONALEP Puebla I</strong> – Electromecánica Industrial (2017 - 2020)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-    <section class="seccion">
-      <h2>Habilidades técnicas</h2>
-      <ul>
-        <li>Manejo de materiales químicos: resinas, cauchos, monómeros, catalizadores</li>
-        <li>Instrumentación y control industrial</li>
-        <li>Preparación y control de insumos en laboratorio</li>
-        <li>Gestión de proyectos multidisciplinarios</li>
-        <li>Normas de seguridad y estándares de calidad</li>
-      </ul>
-    </section>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#experience">
+            💼 Experiencia laboral
+          </button>
+        </h2>
+        <div id="experience" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <ul>
+              <li><strong>4x4 in Schools</strong> – Ingeniera de Manufactura (2017–2019)</li>
+              <li><strong>F1 in Schools México</strong> – Juez y mentora (2023–Actualidad)</li>
+              <li><strong>Consejo Técnico IPN</strong> – Miembro activo (2024–Actualidad)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-    <section class="seccion">
-      <h2>Habilidades blandas</h2>
-      <ul>
-        <li>Planeación y seguimiento de proyectos</li>
-        <li>Pensamiento analítico y resolución de problemas</li>
-        <li>Liderazgo, empatía y trabajo colaborativo</li>
-        <li>Comunicación técnica y adaptabilidad</li>
-        <li>Gestión del tiempo, negociación y resolución de conflictos</li>
-      </ul>
-    </section>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#skills">
+            🛠️ Habilidades
+          </button>
+        </h2>
+        <div id="skills" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>Técnicas:</strong>
+            <ul>
+              <li>Resinas, cauchos, monómeros, catalizadores</li>
+              <li>Instrumentación y control industrial</li>
+              <li>Normas de seguridad, calidad</li>
+            </ul>
+            <strong>Blandas:</strong>
+            <ul>
+              <li>Planeación, liderazgo, empatía</li>
+              <li>Resolución de conflictos</li>
+              <li>Comunicación técnica y adaptabilidad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-    <section class="seccion">
-      <h2>Idiomas</h2>
-      <ul>
-        <li>Español: Nativo</li>
-        <li>Inglés: Avanzado</li>
-      </ul>
-    </section>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#languages">
+            🌍 Idiomas
+          </button>
+        </h2>
+        <div id="languages" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <ul>
+              <li>Español: Nativo</li>
+              <li>Inglés: Avanzado</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-    <section class="seccion">
-      <h2>Contacto</h2>
-      <p>Celular: +52 222 312 6853</p>
-      <p>Correo: susgonz0@gmail.com</p>
-    </section>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contact">
+            📞 Contacto
+          </button>
+        </h2>
+        <div id="contact" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <p>Tel: +52 222 312 6853</p>
+            <p>Email: susgonz0@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+"""
+
+# Guardar el nuevo archivo HTML más colorido
+color_html_path = output_dir / "index.html"
+color_html_path.write_text(colorful_html_content, encoding="utf-8")
+
+# Actualizar el archivo ZIP
+with ZipFile(zip_path, "w") as zipf:
+    zipf.write(color_html_path, arcname="index.html")
+
+zip_path.name
